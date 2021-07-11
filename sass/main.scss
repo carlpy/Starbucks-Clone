@@ -1,0 +1,156 @@
+@import 'variables';
+
+@mixin resetButton {
+    border: none;
+    background-color: inherit;
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden; 
+}
+
+a {
+    color: inherit;
+}
+
+header {
+    display: flex;
+    height: $mobile-height;
+    border-bottom: 2px solid #eee;
+
+    @media only screen and (min-width: $tablet-query) {
+        height: $tablet-height;
+    }
+
+    @media only screen and (min-width: $big-tablet-query) {
+        height: $scond-tablet-height;
+    }
+
+    @media only screen and (min-width: $desktop-query) {
+        height: $desktop-height;
+    }
+}
+
+nav {
+    width: 90%; // in table device it decrease 
+    max-width: 90rem;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    color: #272727;
+}
+
+.nav__svg {
+    width: 2.5rem;
+    height: auto;
+    margin: 0 1.3rem 0 0;
+
+    @media only screen and (min-width: $tablet-query) {
+        width: $min-height-svg;
+    }
+
+    @media only screen and (min-width: $big-tablet-query) {
+        width: $max-height-svg;
+    }
+}
+
+.nav__burger {
+    @include resetButton();
+    
+    svg {
+        width: 2rem;
+    }
+}
+
+.nav__menu--desktop {
+    display: none;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .9rem;
+
+    .nav__links {
+        font-size: .8rem;
+        
+        a { 
+            color: inherit;
+            padding: 0 2.4rem 0 0;
+            font-weight: 800;
+            letter-spacing: .15rem;
+        }
+
+    }
+
+    .nav__buttons {
+        display: flex;
+
+        button, a {
+            margin: 0 0 0 1rem;
+            cursor: pointer;
+        }
+
+        a {                                                                                   
+            display: inherit;
+            align-items: center;
+            margin: 0 1.5rem 0 0;
+         
+            svg {
+                color: #272727;
+                width: 1.5rem;
+                height: 1.5rem;
+                margin: 0 .35rem 0 0;
+            }
+        }
+        
+        button {
+            border: 1px solid;
+            padding: .5rem 1rem;
+            border-radius: 999px;
+        }
+    }
+
+    .nav__links-green:hover, .nav__links-green:hover * {
+        color: #39ad39;
+    }
+
+    .nav__buttons--sign {
+        background-color: #fff;
+
+        &:hover {
+            background-color: #eee;
+        }
+    }
+
+    .nav__buttons--join {
+        background-color: #333;
+        color: #fff;
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+}
+
+@media only screen and (min-width: $big-tablet-query) {
+    .nav__burger {
+        display: none;
+    }
+
+    .nav__menu--desktop {
+        display: flex;
+    }
+}
