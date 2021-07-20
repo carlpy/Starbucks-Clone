@@ -32,8 +32,17 @@
     
 }
 
-html {
-    overflow-x: hidden;
+@mixin menuPadding {
+    padding: 2rem 1rem;
+
+    @media only screen and (min-width: $tablet-query) {
+        & { padding: 2.7rem 2rem; }
+    } 
+}
+
+@mixin translateMenu {
+    transform: translate(100%, 0);
+    transition: transform .7s ease;
 }
 
 * { 
@@ -101,7 +110,6 @@ nav {
     }
 }
 
-
 .nav__menu--desktop {
     display: none;
     flex: 1;
@@ -162,69 +170,77 @@ nav {
     align-items: flex-start;
     width: 80vw;
     height: 100%;
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     z-index: 10;
-    transform: translate(100%, 0);
-    transition: transform 1s ease;
-    padding: 2rem 1rem;
+    @include translateMenu();
     background-color: #fff;
     margin: 0 0 0 auto;
     box-shadow: inset 0 7px 18px -6px #eee;
-    
+    @include menuPadding();
+
     div { margin: 0 0 1.5rem 0; }
 
     .line {
         width: 100%;
         height: 2px;
         background-color: #0000001a;
-    }
+    }  
 
-    @media only screen and (min-width: $tablet-query) {
-        & { padding: 2.7rem 2rem; }
-    }   
-}
-
-.nav__mobile-menu__links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    a {
-        margin: 0 0 1rem 0;
-        font-size: 1.18rem;
-        width: 100%;
-    }
-
-}
-
-.nav__mobile-menu__buttons {
-    @include nav-button();
-
-    .nav__mobile-menu__btns {
+    .nav__mobile-menu__links {
         display: flex;
-        margin: 0 0 1rem 0;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    
+        .btn-menu {
+            border: none;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-        a, button { margin: 0; }
+            svg {
+                width: 1.5rem;
+            }
+        }
 
-        a { margin: 0 1rem 0 0; }
-
-        .nav__buttons--join {
-            background-color: #333;
-            color: #fff;
+        a, .btn-menu {
+            text-align: left;
+            margin: 0 0 1.8rem 0;
+            font-size: 1.18rem;
+            width: 100%;
+        }
+    
+    }
+    
+    .nav__mobile-menu__buttons {
+        @include nav-button();
+    
+        .nav__mobile-menu__btns {
+            display: flex;
+            margin: 0 0 1rem 0;
+    
+            a, button { margin: 0; }
+    
+            a { margin: 0 1rem 0 0; }
+    
+            .nav__buttons--join {
+                background-color: #333;
+                color: #fff;
+            }
         }
     }
 }
+
 
 .show-menu { 
     transform: translate(0%);
 }
 
 
-
-// Black screen
-
+// Black screen in the mobile menu
 .nav__mobile-black-screen {
     position: absolute;
     top: 0;
@@ -238,6 +254,49 @@ nav {
 
 .nav__mobile-menu.show-menu + .nav__mobile-black-screen {
     opacity: 1;
+}
+
+
+// second menu 
+.nav__mobile-menu2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    width: 80vw;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    @include translateMenu();
+
+    a, button {
+        text-align: left;
+        margin: 0 0 1.8rem 0;
+        font-size: 1.18rem;
+        width: 100%;
+        padding: .5rem 2rem;
+    }
+
+    button {
+        border: none;
+        background: transparent;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #eee;
+        padding: 1rem 2rem;
+
+        svg {
+            width: 1.5rem;
+        }
+    }
+    
+}
+
+.show-menu { 
+    transform: translate(0%);
 }
 
 @media only screen and (min-width: 53.43rem){
