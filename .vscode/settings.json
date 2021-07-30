@@ -1,0 +1,12 @@
+{
+    "liveSassCompile.settings.formats": [
+
+        {
+            "format": "compact",
+            "extensionName": ".css",
+            "savePath": "/styles"
+        }
+    ],
+    "window.zoomLevel": 1,
+    "liveSassCompile.settings.generateMap": false
+}

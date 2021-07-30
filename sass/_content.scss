@@ -1,0 +1,116 @@
+@import 'variables';
+
+@mixin article-info {
+    font-size: 1.18rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.7;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media only screen and (min-width: $tablet-query) {
+        font-size: 1.375rem;
+    }
+
+    @media only screen and (min-width: $big-tablet-query) {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-weight: 700;
+        margin: 0 0 1rem;
+    }
+
+    p { margin: 0 0 1.5rem 0}
+
+    button {
+        width: max-content;
+        border-radius: 999px;
+        padding: .5rem 1rem;
+        background-color: transparent;
+        font-size: 0.875rem;
+        font-weight: 800;
+    }
+
+}
+
+.advice-info {
+    padding: 2rem 0;
+    background-color: #D8E8E3;
+
+    p {
+        width: 100%;
+        line-height: 1.6;
+        padding: 0 1rem;
+        text-align: center;
+        margin: 0 auto;
+
+        a {text-decoration: underline;}
+
+        @media screen and (min-width: $big-tablet-query) {
+            width: 60%;
+            max-width: 800px;
+            font-size: 1.1875rem;
+        }
+    }
+
+}
+
+.articles { // this handle all the articles
+    margin: 2rem 0;
+
+    .article__information {
+        @include article-info();
+    }    
+}
+
+.article-1 {
+    background-color: #1E3932;
+    color: #eee;
+
+    button {
+        color: #eee;
+        border: 1px solid #eee;
+    }
+
+    @media only screen and (min-width: $big-tablet-query) {
+        div:first-child {
+            order: 2;
+        }
+    }
+}
+
+.article-2 {
+    background-color: #F2F0EB;
+    color: #1E3932;
+
+    button {
+        color: inherit;
+        border: .7px solid inherit;
+    }
+}
+
+.article-3 {
+    background-color: #F2F0EB;
+
+    div {
+        display: flex;
+        
+        img {
+            margin: auto;    
+            width: 95%;
+            height: 95%;
+            object-fit: cover;
+        }
+        
+        @media only screen and (min-width: $big-tablet-query) {
+            &:first-child {
+                order: 2;
+            }
+        }
+    }
+            
+}

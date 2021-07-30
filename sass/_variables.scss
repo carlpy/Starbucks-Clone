@@ -1,7 +1,7 @@
 // mediaqueries values
-$tablet-query: 23.43rem;
-$big-tablet-query: 48rem;
-$desktop-query: 64rem;
+$tablet-query: 23.43rem;  // 374.88px
+$big-tablet-query: 48rem; // 768px
+$desktop-query: 64rem;    //1024
 
 
 // header height's variables
@@ -14,3 +14,7 @@ $desktop-height: 6.31rem; // 100.96px
 // starbucks logo
 $min-height-svg: 2.5rem;
 $max-height-svg: 3.18rem;
+
+// content section 
+
+$max-width: 90rem; // 1440px
