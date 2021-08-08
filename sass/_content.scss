@@ -27,13 +27,23 @@
     p { margin: 0 0 1.5rem 0}
 
     button {
-        width: max-content;
         border-radius: 999px;
         padding: .5rem 1rem;
         background-color: transparent;
         font-size: 0.875rem;
         font-weight: 800;
+        color: inherit;
+        border: .7px solid;
+        transition: trasnform 1s ease;
+        
+        @media only screen and (min-width: $desktop-query) {    
+            &:hover {
+                background-color: #ffffff44;
+                transform: scale(1.1);
+            }
+        }
     }
+
 
 }
 
@@ -64,17 +74,12 @@
 
     .article__information {
         @include article-info();
-    }    
+    }
 }
 
 .article-1 {
     background-color: #1E3932;
     color: #eee;
-
-    button {
-        color: #eee;
-        border: 1px solid #eee;
-    }
 
     @media only screen and (min-width: $big-tablet-query) {
         div:first-child {
@@ -86,11 +91,6 @@
 .article-2 {
     background-color: #F2F0EB;
     color: #1E3932;
-
-    button {
-        color: inherit;
-        border: .7px solid inherit;
-    }
 }
 
 .article-3 {
@@ -148,3 +148,66 @@
     font-size: 1rem; 
     @media only screen and (min-width: $big-tablet-query) { font-size: 1.18rem;}
 }
+
+/* Footer section */
+
+
+.section__acordions {
+
+    article {
+        overflow: hidden;
+        transition: height 1s ease;
+        
+        ul {
+            transition: all .7s;
+            height: 0;
+    
+            li {
+                padding: 1.2rem 2rem;
+                color: #adadad;
+                font-size: .87rem;
+            }
+        }
+    
+        h2 { 
+            padding: 1.5rem 2rem;
+            display: flex; 
+            justify-content: space-between;
+        }
+    }
+    
+    article.show ul {
+        height: 22rem;
+    }
+}
+
+.section__columms {
+    display: none;
+    justify-content: space-between;
+    max-width: 90rem;
+    margin: 0 auto;
+
+    ul li { 
+        padding: 1rem;
+        color: #8b8b8b;
+        font-size: .87rem;
+        opacity: .8;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    h2 {
+        font-size: 1.18rem;
+        padding: 1rem;
+    } 
+
+}
+
+@media only screen and (min-width: $desktop-query) {
+    .section__acordions { display: none; }
+    .section__columms {display: flex;}
+}
+

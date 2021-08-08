@@ -38,14 +38,10 @@ backMenuButton.addEventListener('click', () => {
     coffeeMenu.classList.toggle('show-menu');
 });
 
+const accordionElements = document.querySelectorAll('.acordions');
 
-var docWidth = document.documentElement.offsetWidth;
-
-[].forEach.call(
-  document.querySelectorAll('*'),
-  function(el) {
-    if (el.offsetWidth > docWidth) {
-      console.log(el);
-    }
-  }
-);
+accordionElements.forEach( (acordion) => {
+    acordion.addEventListener('click', function() {
+        this.classList.toggle('show');
+    })
+});
