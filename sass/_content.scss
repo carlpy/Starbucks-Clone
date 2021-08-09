@@ -39,7 +39,7 @@
         @media only screen and (min-width: $desktop-query) {    
             &:hover {
                 background-color: #ffffff44;
-                transform: scale(1.1);
+                transform: scale(1.05);
             }
         }
     }
@@ -138,6 +138,11 @@
     }
 }
 
+.article-2 img, .article-3 img {
+    object-fit: scale-down;
+    @media only screen and (min-width: $desktop-query) { object-fit: cover; }
+}
+
 .article-1 p, .article-2 p, .article-3 p {
     padding: 0 1rem;
     margin: 0 auto;
@@ -151,6 +156,11 @@
 
 /* Footer section */
 
+.section__container {
+    max-width: 90rem;
+    margin: 0 auto;
+    @media only screen and (min-width: $desktop-query) { border-bottom: 2px solid #ddd; }
+}
 
 .section__acordions {
 
@@ -163,14 +173,14 @@
             height: 0;
     
             li {
-                padding: 1.2rem 2rem;
+                padding: 1.2rem 1.7rem;
                 color: #adadad;
                 font-size: .87rem;
             }
         }
     
         h2 { 
-            padding: 1.5rem 2rem;
+            padding: 1.7rem;
             display: flex; 
             justify-content: space-between;
         }
@@ -183,15 +193,15 @@
 
 .section__columms {
     display: none;
-    justify-content: space-between;
-    max-width: 90rem;
+    width: 90%;
     margin: 0 auto;
-
+    justify-content: space-between;
+    
     ul li { 
-        padding: 1rem;
-        color: #8b8b8b;
+        padding: .8rem 0;
+        color: #4e4e4e;
         font-size: .87rem;
-        opacity: .8;
+        opacity: .7;
         cursor: pointer;
 
         &:hover {
@@ -201,9 +211,44 @@
 
     h2 {
         font-size: 1.18rem;
-        padding: 1rem;
+        padding: 1rem 0;
     } 
 
+    ul li, h2 { letter-spacing: .035rem; }
+
+    @media only screen and (min-width: 90.25rem) { width: 100% }
+}
+
+.section__media_container {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 1.7rem;
+    i {
+        font-size: 1.5rem;
+        margin: 1.5rem 1rem 0 0;
+    }
+
+    @media only screen and (min-width: $desktop-query) { 
+        padding: 0; 
+        width: 90%;
+    }
+
+}
+
+.section__politics {
+    margin: 1.5rem 0 0 0;
+    text-decoration: underline;
+
+    p {
+        margin: 1rem 0;
+        padding: 0 1rem 0 0;
+    }
+
+    @media only screen and (min-width: $desktop-query) { 
+        & { display: flex; } 
+        p { border-right: 1px solid #333; margin: 0 1rem 0 0;}
+     }
 }
 
 @media only screen and (min-width: $desktop-query) {

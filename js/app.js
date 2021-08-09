@@ -13,7 +13,13 @@ const menuButton = document.querySelector('.btn-menu');
 const backMenuButton = document.querySelector('.nav__back-btn');
 const coffeeMenu = document.querySelector('.nav__mobile-menu2');
 
+// footer accordion
+const accordionElements = document.querySelectorAll('.acordions');
+
+
 ///---- Events ----///
+
+// header and mobile events
 
 burgerButton.addEventListener('click', () => {
     coffeeMenu.classList.remove('show-menu');
@@ -29,7 +35,6 @@ burgerButton.addEventListener('click', () => {
     }
 });
 
-
 menuButton.addEventListener('click', () => {
     coffeeMenu.classList.toggle('show-menu');
 });
@@ -38,10 +43,11 @@ backMenuButton.addEventListener('click', () => {
     coffeeMenu.classList.toggle('show-menu');
 });
 
-const accordionElements = document.querySelectorAll('.acordions');
+
+// footer elements
 
 accordionElements.forEach( (acordion) => {
     acordion.addEventListener('click', function() {
         this.classList.toggle('show');
-    })
+    });
 });
